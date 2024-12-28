@@ -1,0 +1,378 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #000000;
+  line-height: 1;
+  font-family: "Arial";
+  font-size: 0.875rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Arial";
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+body {
+  background: linear-gradient(45deg, #28072C 0%, #52085F 100%);
+}
+
+.lock body {
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+@supports (overflow: clip) {
+  .wrapper {
+    overflow: clip;
+  }
+}
+
+.wrapper > main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.wrapper > * {
+  min-width: 0;
+}
+
+[class*=__container] {
+  max-width: 73.125rem;
+  margin: 0 auto;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+[class*=-ibg--contain] img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+footer {
+  background: #b9b9b9;
+}
+
+.main {
+  padding-top: 60px;
+}
+
+.main__title {
+  color: #fff;
+  font-weight: 900;
+  font-size: 32px;
+}
+
+.weather {
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  background: #3E1849;
+  color: #fff;
+}
+
+.weather__up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.weather__city {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.weather__value {
+  font-size: 52px;
+  font-weight: 900;
+}
+
+.weather__about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  gap: 5px;
+}
+
+.weather__about-city {
+  font-weight: 700;
+}
+
+.weather__about-city__edit {
+  margin-left: 5px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.weather__about-city__edit img {
+  width: 100%;
+  height: 100%;
+}
+
+.weather__about-city__edit:hover {
+  opacity: 0.7;
+}
+
+.load-holder {
+  position: relative;
+}
+
+.load-holder::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 105%;
+  height: 100%;
+  -webkit-animation: slidein;
+          animation: slidein;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes slidein {
+  0% {
+    background: #28072C;
+  }
+
+  50% {
+    background: #330738;
+  }
+
+  100% {
+    background: #28072C;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    background: #28072C;
+  }
+
+  50% {
+    background: #330738;
+  }
+
+  100% {
+    background: #28072C;
+  }
+}
+
+.error__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: Arial;
+  font-size: 1.5625rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px #727272;
+}
+
+.error__text h1 {
+  margin-bottom: 15px;
+}
+
+.error__text h2 {
+  font-weight: 300;
+  font-size: 1.25rem;
+}
+
+.error__logo {
+  font-size: 7.5rem;
+  color: #fff;
+  font-family: Arial;
+  font-weight: 700;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.error__info {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: var(--vh);
+}
+
+.error__bg {
+  z-index: -1;
+  width: 100vh;
+  height: 100%;
+}
+
+.error__bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.error__body {
+  min-height: var(--vh);
+  position: relative;
+}
+
+.error__snow {
+  height: auto;
+  max-height: 120px;
+  width: 110%;
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+}
+
+.error__snow img {
+  width: 100%;
+}
+
+@media (max-width: 370px) {
+  .error__text {
+    width: 100%;
+  }
+}
+
+@media (max-width: 47.99875em) {
+  .error__text {
+    width: 330px;
+  }
+}

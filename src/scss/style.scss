@@ -1,0 +1,109 @@
+@use "sass:math";
+
+// Подключение миксинов 
+@import "base/mixins";
+
+//&display=swap // добавить при подключении через плагин
+
+//@import "fonts/fonts"; // Подключить, если есть локальные файлы шрифтов
+
+//@import "fonts/icons"; // Подключить, если есть файл иконочного шрифта
+
+$fontFamily: "Arial";
+$fontSize: toRem(14);
+
+$mainColor: #000000;
+$bgColor: linear-gradient(45deg, #28072C 0%, #52085F 100%);
+
+$minWidth: 320; // Минимальная ширина страницы
+$maxWidth: 1920; // Ширина полотна (макета)
+$maxWidthContainer: 1170; // Ширина ограничивающего контейнера (0 = нет ограничения)
+$containerPadding: 0; // Общее отступление у контейнера (30=15+15)
+
+$containerWidth: $maxWidthContainer + $containerPadding; // Ширина срабатывания первого брейкпоинта
+
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
+
+$responsiveType: 1; // Тип адаптива: 1 = отзывчивость (у контейнера нет брейкпоинтов), 2 = по брейк-поинту (контейнер изменяет свою ширину по брейк-поинту)
+
+@import "base/null"; // Обнуление
+
+body{
+    background: $bgColor;
+}
+
+body {
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+		overscroll-behavior: none;
+	}
+	.loaded & {
+	}
+}
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	> main {
+		flex: 1 1 auto; // Прижимаем footer
+	}
+	> * {
+		min-width: 0; // Фикс для слайдеров
+	}
+}
+// Ограничивающий контейнер
+@if ($responsiveType==1) {
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			@if ($maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			} @else {
+				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+			}
+		}
+	}
+} @else {
+	// Брейк-поинты
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: toRem($containerWidth);
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: toRem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: toRem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 toRem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+@import "base";
+@import "common";
+@import "footer";
+@import "home";
+@import "404";

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Weather | Coded by Anton Savchenko"
+	})
+	<body>
+		<div class="wrapper">
+			<main class="page">
+				<section class="main">
+					<div class="main__container">
+						<div class="main__body">
+							<div class="main__title">
+								Weather
+							</div>
+							<div class="weather">
+								<section class="weather__up">
+									<div class="weather__city">
+										<div class="weather__value load-holder">
+											<p>--°C</p>
+										</div>
+										<div class="weather__about">
+											<span class="weather__about-text">Current weather in</span>
+											<span class="weather__about-city load-holder">----------</span>
+											<div class="weather__about-city__edit">
+												<img src="@img/icons/edit-icon.svg" alt="">
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="weather__info">
+
+								</section>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

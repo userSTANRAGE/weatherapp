@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+		"title":"Page not found"
+	})
+	<body>
+        <script src="https://app.embed.im/snow.js" defer></script>
+		<div class="wrapper">
+			<main class="page">
+				<style>
+					body {
+						background-color: #fff8f8;
+					}
+				</style>
+				<section class="error">
+					<div class="error__body" data-fullscreen> 
+						<div class="error__info" >
+                            <div class="error__logo">
+								<span>404</span>
+							</div>
+							<div class="error__text">
+								<h1>This page not found.</h1>
+								<h2>You will be redirected to the home page in 5 seconds.</h1>
+							</div>
+                        </div>
+						<div class="error__bg">
+                            <img src="@img/404/image.webp" alt="">
+                        </div>
+                        <div class="error__snow">
+                            <img src="@img/404/snow.svg" alt="">
+                        </div>
+					</div>
+				</section>
+			</main>
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>
